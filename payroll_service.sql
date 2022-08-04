@@ -41,3 +41,13 @@ select min(salary) as lowSalary from employee_payroll;
 select max(salary) as highSalary from employee_payroll;
 
 select count(gender) from employee_payroll where gender = 'M' group by gender;
+
+/*--------UC8----------*/
+select * from employee_payroll;
+
+alter table employee_payroll
+add phoneno varchar(15),
+add department varchar(50) not null after salary;
+
+alter table employee_payroll
+add address varchar(250) default 'Address' after phoneno;
