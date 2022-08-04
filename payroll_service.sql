@@ -22,3 +22,7 @@ insert into employee_payroll(name, salary, startDate) values('Rishab', 55000.0, 
 
 /*--------UC4----------*/
 select * from employee_payroll;
+
+/*--------UC5----------*/
+select salary from employee_payroll where name = "Vignesh";
+select * from employee_payroll where startDate between cast('2022-01-01' as date) and Date(now());
