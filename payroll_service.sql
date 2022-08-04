@@ -51,3 +51,21 @@ add department varchar(50) not null after salary;
 
 alter table employee_payroll
 add address varchar(250) default 'Address' after phoneno;
+
+/*--------UC9---------*/
+select * from employee_payroll;
+alter table employee_payroll rename column salary to basic_pay;
+
+alter table employee_payroll
+add deduction int,
+add taxable_pay int,
+add income_tax int,
+add net_pay int;
+
+update employee_payroll set deduction=(basic_pay*0.1) where id!=0;
+update employee_payroll set taxable_pay=(basic_pay-deduction) where id!=0;
+update employee_payroll set income_tax=(taxable_pay*0.2) where id!=0;
+update employee_payroll set net_pay=(taxable_pay-income_tax) where id!=0;
+
+select * from employee_payroll where name="Sachin";
+desc employee_payroll;
